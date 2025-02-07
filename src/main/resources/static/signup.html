@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>signup</title>
+	<script src="JavaScript/script.js"></script>
+	<link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+	<div class="signup">
+		<img class = "images" src= "images/logo_schedooo!.png" width="350px" height="120px" id="cat">
+		<img class = "images" src= "images/cat_signup.png" width="240px" height="140px" id="cat">
+
+	<div id="line"></div>
+
+    <form class="card_signup">
+
+        <div class="login-form">
+            <img class = "images" src= "images/icon_username.png" width="55px" height="30px" id="logo-input"> 
+            <input type="text" class="input input1" name="username" id="username" placeholder="Username" required>
+        </div>
+
+        <div class="login-form">
+            <img class = "images" src= "images/icon_password.png" width="55px" height="30px" id="logo-input">
+            <input type="password" class="input" name="password" id="password" placeholder="Password" required>
+        </div>
+
+        <div class="login-form">
+            <img class = "images" src= "images/icon_confirmpassword.png" width="55px" height="30px" id="logo-input">
+            <input type="password" class="input" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
+        </div>
+
+		<div class="button-signup">        
+      	  <button class="button-signup" onclick="register()">Sign Up</button>
+    	</div>
+
+		<div id="signupMessage"></div>
+
+    </form>
+
+</body>
+</html>

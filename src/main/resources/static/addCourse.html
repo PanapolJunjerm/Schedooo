@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>add Course</title>
+	<script src="JavaScript/script.js"></script>
+	<link rel="stylesheet" href="CSS/style.css">
+	<style>
+		body 
+		{
+			background-color: #FFD4A2;
+		}
+	</style>
+</head>
+<body>
+	<div class="navigator orange1">
+		<div class="left-content">
+			<button class="cancel-button" onclick="goToDashboard()">Cancle</button>
+		</div>
+
+		<div class="center-content">
+			<h1>New Course</h1>
+		</div>
+
+		<div class="right-content">
+			<button class="save-button" onclick="addCourse()">Save</button>
+		</div>
+	</div>
+
+	<div class="navigator1 cream">
+			<input type="text" id="courseID" name="courseID" placeholder="รหัสวิชา" required><br>
+	</div>
+
+	<div class="navigator1 cream">
+			<input type="text" id="courseName" name="courseName" placeholder="ชื่อวิชา" required><br>
+	</div>
+
+	<div class="navigator1 cream">
+			<input type="text" id="professorName" name="professorName" placeholder="ชื่อผู้สอน" required><br>
+	</div>
+	
+	<div class="navigator1 cream">
+		<div class="left-content-50"><label for="dayOfWeek">วัน</label></div>
+		<div class="right-content-50"><select id="dayOfWeek" name="dayOfWeek" required>
+		<option value="mon">จ.</option>
+		<option value="tue">อ.</option>
+		<option value="wed">พ.</option>
+		<option value="thu">พฤ.</option>
+		<option value="fri">ศ.</option>
+		<option value="sat">ส.</option>
+		<option value="sun">อา.</option>
+		</select><br></div>
+	</div>
+
+	<div class="navigator2 cream">
+		<div class="left-content-50"><label for="startTime">เวลาเริ่มต้น</label></div>
+		<div class="right-content-50 startTime"><select id="startTime" name="startTime" required>
+		<option value="08:00">8:00</option>
+		<option value="09:30">9:30</option>
+		<option value="11:00">11:00</option>
+		<option value="13:30">13:30</option>
+		<option value="15:00">15:00</option>
+		<option value="16:30">16:30</option>
+		</select><br></div>
+	</div>
+
+	<div class="navigator2 cream">
+		<div class="left-content-50"><label for="endTime">เวลาสิ้นสุด</label></div>
+		<div class="right-content-50"><select id="endTime" name="endTime" required>
+		<option value="09:30">9:30</option>
+		<option value="11:00">11:00</option>
+		<option value="12:30">12:30</option>
+		<option value="15:00">15:00</option>
+		<option value="16:30">16:30</option>
+		<option value="18:00">18:00</option>
+		</select><br></div>
+	</div>
+	
+	<div class="navigator1 cream">
+		<div class="left-content-50"><label for="colorCourse">สี</label></div>
+		<div class="right-content-50"><input type="color" id="colorCourse" name="colorCourse" required><br></div>
+	</div>
+</body>
+</html>

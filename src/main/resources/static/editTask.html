@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editTask</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="JavaScript/script.js"></script>
+    <style>
+		body 
+		{
+			background-color: #FFD4A2;
+		}
+	</style>
+</head>
+<body>
+    <div class="navigator orange1">
+		<div class="left-content">
+			<button class="cancel-button" onclick="goToDashboard()">Cancle</button>
+		</div>
+
+		<div class="center-content">
+			<h1>Edit Task</h1>
+		</div>
+
+		<div class="right-content">
+			<button class="save-button" onclick="editTask()">Save</button>
+		</div>
+	</div>
+
+    <div class="navigator1 cream">
+		<input type="text" id="editNameTask" name="editNameTask"><br>
+	</div>
+
+	<div class="navigator1 cream">
+		<input type="text" id="editDetailTask" name="editDetailTask"><br>
+	</div>
+
+	<div class="navigator1 cream">
+		<div class="left-content-50"><label for="dayOfWeek">วันที่</label></div>
+		<div class="right-content-50">
+			<input type="date" id="editDeadlineTask" name="deadlineTask" style="background-color: #D9D9D9; border: 1.5px solid #545454; padding: 4px 12px;"><br>
+		</div>
+	</div>
+
+    <div class="right-content-100">
+        <button onclick="deleteTask()" class="clear">
+            <img class="images" src="images/icon_trash.png" style="width: 45px; height: 45px;">
+        </button>
+    </div>  
+    
+</body>
+</html>

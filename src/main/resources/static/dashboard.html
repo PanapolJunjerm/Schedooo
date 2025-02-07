@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dashboard</title>
+	<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+	<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+	<div class="navigator orange1">
+
+		<div class="left-content">
+			<button onclick="toggleSidePopup()" class="clear">
+				<img class="images" src="images/icon_menu.png" width="90px" height="25px" style="margin-top: 10px; margin-left: 20px;">
+			</button>
+			
+			<button class="clear">
+				<img onclick="showNotification()" class="images" src="images/icon_notification.png" width="35px" height="35px" style="margin-top: 20px; margin-left: 20px;">
+			</button>
+		</div>
+
+		<div class="center-content">
+			<h1>Dashboard</h1>
+		</div>
+
+		<div class="right-content">
+			<button onclick="goToAdd()" class="clear">
+				<img class="images" src="images/icon_add.png" width="45px" height="38px" style="margin-top: 20px; margin-right: 20px;">
+			</button>
+		</div>
+		
+	</div>
+
+	<div class="navigator orange2">
+
+		<button id="icon_schedule" onclick="showCourse()" class="clear padding">
+			<img class="images-100" src="images/icon_schedule.png" width="40px" height="40px">
+		</button>
+		<button id="icon_tasks" onclick="showTask()" class="clear padding">
+			<img class="img-100" src="images/icon_tasks.png">
+		</button>
+		<button id="icon_calendar" onclick="showCalender()" class="clear padding">
+			<img class="img-100" src="images/icon_calendar.png">
+		</button>
+		
+	</div>
+	<!-- <button onclick="logout()" >logout</button><br> -->
+	<!-- <button onclick="goToAddTask()">addTask</button> -->
+	<!-- <button onclick="showNotification()">notification</button> -->
+	<!-- <button onclick="clearLocalStorage()">clear local storage</button> -->
+
+<!--<button onclick="popup('error na')">popupbuton</button>
+
+<button onclick="listTest()">กดเพื่อแสดงข้อความ</button>-->
+<div class="container" id="container">
+	<div id="list-header"  class="list-header padding-v">hello</div>
+	<div id="list-container" class="list-container">
+		
+	</div>
+	<!-- <div class="blox"> -->
+		<!-- <img src="https://static.vecteezy.com/system/resources/previews/005/863/122/non_2x/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg" width="550px" id="fp-cat"> -->
+		<!-- <img src="https://static.vecteezy.com/system/resources/previews/025/421/178/non_2x/cute-adorable-kitty-cat-professional-worker-mascot-modern-flat-illustration-character-office-worker-boss-lawyer-graduation-college-good-boy-hipster-vector.jpg" height="250px" id="cat"> -->
+		<!-- <img src="https://static.vecteezy.com/system/resources/previews/005/863/122/non_2x/dog-or-cat-footprints-paw-print-dog-footprints-paw-foot-trail-print-on-white-background-free-vector.jpg" width="550px" id="fp-cat"> -->
+		<!-- <div id="image-container"></div> -->
+	<!-- </div> -->
+</div>
+	<div id="popupContainer" class="popupContainer">
+		<div class="notification">
+			<div class="right-header"><button onclick="popupClose()" class="notification-cancle"><img class="img-100" src="images/icon_cancle.png"></button></div>
+			<div id="noti-container" class="noti-container">
+				
+			</div>
+			
+		</div>	
+	</div>
+
+	<div id="sidePopupContainer" class="sidePopupContainer">
+		<div class="left-side-popup">
+			<div class="sidepopupuser" id="sidepopupuser">
+				
+			</div>
+			<div class="sidepopupcontent" id="sidepopupcontent"></div>
+			<div class="sidepopuplogout" id="sidepopuplogout">
+				<button onclick="logout()">logout</button>
+			</div>
+		</div>	
+		<div onclick="toggleSidePopupClose()" class="right-side-popup">
+			
+		</div>
+	</div>
+
+
+
+<script src="JavaScript/script.js"></script>
+</body>
+</html>

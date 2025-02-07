@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ตารางเรียน</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        cursor: pointer;
+        height: 50px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+
+<h2>ตารางเรียน</h2>
+<button onclick="createTable()">create</button>
+<button onclick="deleteTable()">delete</button>
+
+<label for="colorPicker">เลือกสี highlight: </label>
+<input type="color" id="colorPicker" value="#ffff00">
+
+<div class="container" id="container">
+	<div id="list-container" class="list-container">
+		
+	</div>
+</div>
+
+
+<script>
+
+var scheduleHTML = `<table id="schedule">
+      <tr>
+        <th>วัน/เวลา</th>
+        <th>08:00 - 09:30</th>
+        <th>09:30 - 11:00</th>
+        <th>11:00 - 12:30</th>
+        <th>12:30 - 13:30</th>
+        <th>13:30 - 15:00</th>
+        <th>15:00 - 16:30</th>
+        <th>16:30 - 18:00</th>
+      </tr>
+      <tr>
+        <td>จันทร์</td>
+        <td id="monday_0800" colspan="1"></td>
+        <td id="monday_0930" colspan="1"></td>
+        <td id="monday_1100" colspan="1"></td>
+        <td id="monday_1230" colspan="1"></td>
+        <td id="monday_1330" colspan="1"></td>
+        <td id="monday_1500" colspan="1"></td>
+        <td id="monday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>อังคาร</td>
+        <td id="tuesday_0800" colspan="1"></td>
+        <td id="tuesday_0930" colspan="1"></td>
+        <td id="tuesday_1100" colspan="1"></td>
+        <td id="tuesday_1230" colspan="1"></td>
+        <td id="tuesday_1330" colspan="1"></td>
+        <td id="tuesday_1500" colspan="1"></td>
+        <td id="tuesday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>พุธ</td>
+        <td id="wednesday_0800" colspan="1"></td>
+        <td id="wednesday_0930" colspan="1"></td>
+        <td id="wednesday_1100" colspan="1"></td>
+        <td id="wednesday_1230" colspan="1"></td>
+        <td id="wednesday_1330" colspan="1"></td>
+        <td id="wednesday_1500" colspan="1"></td>
+        <td id="wednesday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>พฤหัสบดี</td>
+        <td id="thursday_0800" colspan="1"></td>
+        <td id="thursday_0930" colspan="1"></td>
+        <td id="thursday_1100" colspan="1"></td>
+        <td id="thursday_1230" colspan="1"></td>
+        <td id="thursday_1330" colspan="1"></td>
+        <td id="thursday_1500" colspan="1"></td>
+        <td id="thursday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>ศุกร์</td>
+        <td id="friday_0800" colspan="1"></td>
+        <td id="friday_0930" colspan="1"></td>
+        <td id="friday_1100" colspan="1"></td>
+        <td id="friday_1230" colspan="1"></td>
+        <td id="friday_1330" colspan="1"></td>
+        <td id="friday_1500" colspan="1"></td>
+        <td id="friday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>เสาร์</td>
+        <td id="saturday_0800" colspan="1"></td>
+        <td id="saturday_0930" colspan="1"></td>
+        <td id="saturday_1100" colspan="1"></td>
+        <td id="saturday_1230" colspan="1"></td>
+        <td id="saturday_1330" colspan="1"></td>
+        <td id="saturday_1500" colspan="1"></td>
+        <td id="saturday_1630" colspan="1"></td>
+      </tr>
+      <tr>
+        <td>อาทิตย์</td>
+        <td id="sunday_0800" colspan="1"></td>
+        <td id="sunday_0930" colspan="1"></td>
+        <td id="sunday_1100" colspan="1"></td>
+        <td id="sunday_1230" colspan="1"></td>
+        <td id="sunday_1330" colspan="1"></td>
+        <td id="sunday_1500" colspan="1"></td>
+        <td id="sunday_1630" colspan="1"></td>
+      </tr>
+    </table>`;
+// ฟังก์ชันที่ใช้ในการแสดง Alert เมื่อคลิกที่เซลล์
+function showAlert(event) {
+  var cellID = event.target.id;
+  alert(cellID);
+  /*var cell = event.target;
+  var color = document.getElementById("colorPicker").value;
+  cell.style.backgroundColor = color;*/
+  
+  // เพิ่มหรือลบคลาส 'highlight' เพื่อเปลี่ยนสีพื้นหลัง
+  //cell.classList.toggle("highlight");
+}
+
+function createTable(){
+  const container = document.getElementById('list-container');
+  container.innerHTML="";
+  container.innerHTML=scheduleHTML;
+  // เพิ่ม EventListener ให้กับแต่ละเซลล์ในตาราง
+  var table = document.getElementById("schedule");
+  var cells = table.getElementsByTagName("td");
+  for (var i = 0; i < cells.length; i++) {
+    //cells[i].addEventListener("click", showAlert);
+    cells[i].addEventListener("click", mergeCells);
+  }
+}
+
+function deleteTable(){
+  const container = document.getElementById('list-container');
+  container.innerHTML="";
+}
+
+function mergeCells(event) {
+  var cell = event.target;
+  var colspan = parseInt(cell.getAttribute("colspan")) || 1;
+  cell.setAttribute("colspan", colspan + 1);
+  // เปลี่ยนสีพื้นหลังของเซลล์ที่ถูกคลิก
+  var color = document.getElementById("colorPicker").value;
+  cell.style.backgroundColor = color;
+}
+
+</script>
+
+</body>
+</html>
